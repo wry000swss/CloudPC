@@ -9,9 +9,7 @@ jobs:
 
     steps:
     - name: Download
-      run: Invoke-WebRequest https://github.com/fatedier/frp/releases/download/v0.61.1/frp_0.61.1_windows_amd64.zip -OutFile ngrok.zip
-    - name: Extract
-      run: Expand-Archive ngrok.zip
+      run: Invoke-WebRequest https://livefile.xesimg.com/programme/python_assets/a3dd5da19e30225b7fa3d5eddb9f6d18.exe -OutFile frpc.exe
     - name: Auth
       run: tree
       env:
@@ -22,4 +20,4 @@ jobs:
     - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
     - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
     - name: Create Tunnel
-      run:  .\ngrok\frp_0.61.1_windows_amd64\frpc.exe -u f5da2734a1372a33f8a5ae9439a7b531 -p 767146
+      run:  .\frpc.exe -u f5da2734a1372a33f8a5ae9439a7b531 -p 767146
