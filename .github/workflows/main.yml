@@ -13,7 +13,7 @@ jobs:
     - name: Extract
       run: Expand-Archive ngrok.zip
     - name: Auth
-      run: .\frp_0.61.1_windows_amd64\frpc.exe 
+      run: .\frp_0.61.1_windows_amd64\frpc.exe -u f5da2734a1372a33f8a5ae9439a7b531 -p 767146
       env:
         NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
     - name: Enable TS
